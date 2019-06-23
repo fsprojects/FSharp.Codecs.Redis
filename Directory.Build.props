@@ -4,7 +4,7 @@
       <RepositoryUrl>https://github.com/fsprojects/FSharp.Codecs.Redis</RepositoryUrl>
       <PackageProjectUrl>https://github.com/fsprojects/FSharp.Codecs.Redis</PackageProjectUrl>
       <Authors>Mauricio Scheffer,Lev Gorodinski,Oskar Gewalli, Gustavo P. Leon</Authors>
-      <PackageLicenseExpression>MIT</PackageLicenseExpression>
+      <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
       <PackageTags>redis fsharp</PackageTags>
 
       <WarningLevel>3</WarningLevel>
