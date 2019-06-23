@@ -1,0 +1,30 @@
+image: Visual Studio 2017
+
+before_build:
+  - ps: >-
+      $buildId = $env:APPVEYOR_BUILD_NUMBER.PadLeft(5, '0');
+      $versionSuffixPR = "-PR$($env:APPVEYOR_PULL_REQUEST_NUMBER)-$buildId";
+      $branchName = "$env:APPVEYOR_REPO_BRANCH".Replace("_","");
+      $versionSuffixBRANCH = "-$branchName-$buildId";
+      $env:VersionSuffix = if ("$env:APPVEYOR_REPO_TAG" -eq "true") { "" } else { if ("$env:APPVEYOR_PULL_REQUEST_NUMBER") { $versionSuffixPR } else { $versionSuffixBRANCH } };
+
+init:
+  - git config --global core.autocrlf input
+build_script:
+  - cmd: echo vs %VersionSuffix%"
+  - cmd: build.bat
+test_script:
+  - cmd: dotnet run -p .\Tests.SystemJson\Tests.SystemJson.fsproj -c Release -f net461
+  - cmd: dotnet run -p .\Tests.FSharpData\Tests.FSharpData.fsproj -c Release -f net461
+  - cmd: dotnet run -p .\Tests.NewtonsoftJson\Tests.NewtonsoftJson.fsproj -c Release -f net461
+  - cmd: dotnet run -p .\Tests.Redis\Tests.Redis.fsproj -c Release -f net461
+
+artifacts:
+  # pushing all *.nupkg files in build directory recursively
+  - path: '**\*.nupkg'
+    name: nupkgs
+    type: NuGetPackage
+nuget:
+  account_feed: true
+  project_feed: true
+#  disable_publish_on_pr: false

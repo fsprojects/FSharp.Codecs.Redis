@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+      <RepositoryUrl>https://github.com/fsprojects/FSharp.Codecs.Redis</RepositoryUrl>
+      <PackageProjectUrl>https://github.com/fsprojects/FSharp.Codecs.Redis</PackageProjectUrl>
+      <Authors>Mauricio Scheffer,Lev Gorodinski,Oskar Gewalli, Gustavo P. Leon</Authors>
+      <PackageLicenseExpression>MIT</PackageLicenseExpression>
+      <PackageTags>redis fsharp</PackageTags>
+
+      <WarningLevel>3</WarningLevel>
+
+      <VersionPrefix>0.1.0</VersionPrefix>
+      <VersionSuffix>alpha-1</VersionSuffix>
+      <Version Condition=" '$(VersionSuffix)' != '' ">$(VersionPrefix)-$(VersionSuffix)</Version>
+      <Version Condition=" '$(VersionSuffix)' == '' ">$(VersionPrefix)</Version>
+      <AssemblyVersion>$(VersionPrefix).0</AssemblyVersion>
+      <FileVersion>$(VersionPrefix).0</FileVersion>
+  </PropertyGroup>
+</Project>
