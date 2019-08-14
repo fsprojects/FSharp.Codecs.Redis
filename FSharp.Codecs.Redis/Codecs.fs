@@ -19,14 +19,14 @@ module Redis=
         let inline getNameValue redisKvp = 
             let name =  (^a : (member get_Name  : unit -> RedisValue ) redisKvp)
             let value = (^a : (member get_Value : unit -> RedisValue) redisKvp)
-            KeyValuePair(name, value)
+            name, value
         /// try to find entry with name equal to key
         let inline tryFindEntry (key:string) (o: list<_>) =
             let k :RedisValue= implicit key
             o 
             |> List.map getNameValue
-            |> List.tryFind (fun p -> p.Key.Equals(k) ) 
-            |> Option.map (fun v-> v.Value)
+            |> List.tryFind (fun (p,_) -> p.Equals(k) ) 
+            |> Option.map snd
         module RedisList=
             let union a b = List.append a b // NOTE: let's start with this, need to verify assumption later
     open Helpers
@@ -211,7 +211,7 @@ module Redis=
     let inline rgetWith ofRedis kvps key =
         match tryFindEntry key kvps with
         | Some value -> ofRedis value
-        | _ -> Decode.Fail.propertyNotFound key (List.map getNameValue kvps)
+        | _ -> Decode.Fail.propertyNotFound key (List.map implicit kvps)
     /// Gets a value from a Redis object
     let inline rget kvps key = rgetWith ofRedis kvps key
 
@@ -317,7 +317,7 @@ module Operators =
     let inline rgetFromListWith ofRedis (o: list<_>) key =
       match tryFindEntry key o with
       | Some value -> ofRedis value
-      | _ -> Decode.Fail.propertyNotFound key (List.map getNameValue o)
+      | _ -> Decode.Fail.propertyNotFound key (List.map implicit o)
 
     /// Tries to get a value from a Redis object.
     /// Returns None if key is not present in the object.
