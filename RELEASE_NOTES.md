@@ -1,2 +1,2 @@
-#### 0.1.0  - Juli 1 2019
+#### 0.1.0  - August 15 2019
 * Initial release

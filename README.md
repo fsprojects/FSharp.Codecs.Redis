@@ -1,2 +1,3 @@
 # FSharp.Codecs.Redis
-FSharp redis codecs based on Fleece patterns
+
+FSharp Redis Codecs based on Fleece patterns. It simplifies mapping from Stackexchange.Redis values onto your types, and mapping from your types onto Stackexchange.Redis values.
