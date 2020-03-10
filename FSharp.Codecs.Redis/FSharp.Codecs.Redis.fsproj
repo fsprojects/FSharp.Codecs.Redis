@@ -11,8 +11,8 @@
 
   <ItemGroup>
     <Compile Include="Codecs.fs" />
-    <PackageReference Include="FSharpPlus" Version="1.1.0-RC1" />
-    <PackageReference Include="StackExchange.Redis" Version="2.0.*" />
+    <PackageReference Include="FSharpPlus" Version="1.1.0-RC3" />
+    <PackageReference Include="StackExchange.Redis" Version="2.0.601" />
   </ItemGroup>
 
 </Project>
