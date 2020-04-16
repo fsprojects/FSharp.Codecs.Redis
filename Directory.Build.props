@@ -10,13 +10,13 @@
         <WarningLevel>3</WarningLevel>
 
         <VersionPrefix>0.1.0</VersionPrefix>
-        <VersionSuffix>RC3</VersionSuffix>
+        <VersionSuffix></VersionSuffix>
         <Version Condition=" '$(VersionSuffix)' != '' ">$(VersionPrefix)-$(VersionSuffix)</Version>
         <Version Condition=" '$(VersionSuffix)' == '' ">$(VersionPrefix)</Version>
         <AssemblyVersion>$(VersionPrefix).0</AssemblyVersion>
         <FileVersion>$(VersionPrefix).0</FileVersion>
         <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-        <PackageReleaseNotes>Use RC1 of FSharpPlus</PackageReleaseNotes>
+        <PackageReleaseNotes>Use v1.1 of FSharpPlus</PackageReleaseNotes>
     </PropertyGroup>
 
     <!-- mono -->
