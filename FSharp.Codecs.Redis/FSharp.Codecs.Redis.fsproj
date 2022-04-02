@@ -12,7 +12,9 @@
   <ItemGroup>
     <Compile Include="Codecs.fs" />
     <PackageReference Include="FSharpPlus" Version="1.2.3" />
+    <!-- TODO:
     <PackageReference Include="Fleece" Version="0.10.0-RC15" />
+    -->
     <PackageReference Include="StackExchange.Redis" Version="2.0.601" />
   </ItemGroup>
 
