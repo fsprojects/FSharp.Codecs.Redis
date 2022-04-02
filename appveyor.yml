@@ -14,7 +14,7 @@ build_script:
   - cmd: echo vs %VersionSuffix%"
   - cmd: build.bat
 test_script:
-  - cmd: dotnet run -p .\Tests\Tests.fsproj -c Release -f net461
+  - cmd: dotnet run --project .\Tests\Tests.fsproj -c Release -f net461
 
 artifacts:
   # pushing all *.nupkg files in build directory recursively
