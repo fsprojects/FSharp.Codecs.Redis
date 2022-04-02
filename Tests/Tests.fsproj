@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>netcoreapp3.1;netcoreapp2.1;netcoreapp2.0;net461</TargetFrameworks>    
+    <TargetFrameworks>net6;netcoreapp3.1;netcoreapp2.1;netcoreapp2.0;net461</TargetFrameworks>    
     <DefineConstants>REDIS;$(DefineConstants)</DefineConstants>
   </PropertyGroup>
 
